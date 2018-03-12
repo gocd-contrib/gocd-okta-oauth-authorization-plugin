@@ -8,7 +8,7 @@ Installation documentation available [here](INSTALL.md).
 
 # Capabilities
 
-* Currently supports only authentication capability, authorization is TBD.
+* Currently supports authentication and authorization capabilities.
 
 ## Building the code base
 
