@@ -26,7 +26,7 @@ public class User {
     private String username;
 
     @Expose
-    @SerializedName("name")
+    @SerializedName("display_name")
     private String displayName;
 
     @Expose

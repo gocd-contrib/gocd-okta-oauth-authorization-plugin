@@ -86,7 +86,7 @@ public class UserAuthenticationRequestExecutorTest {
                 "  \"roles\": [],\n" +
                 "  \"user\": {\n" +
                 "    \"username\": \"foo@bar.com\",\n" +
-                "    \"name\": \"Foo Bar\",\n" +
+                "    \"display_name\": \"Foo Bar\",\n" +
                 "    \"email\": \"foo@bar.com\"\n" +
                 "  }\n" +
                 "}";

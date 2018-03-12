@@ -29,7 +29,7 @@ public class UserTest {
     @Test
     public void shouldSerializeToJSON() throws Exception {
         final User user = new User("foo", "bar", "baz");
-        final String expectedJSON = "{\"username\":\"foo\",\"name\":\"bar\",\"email\":\"baz\"}";
+        final String expectedJSON = "{\"username\":\"foo\",\"display_name\":\"bar\",\"email\":\"baz\"}";
 
         JSONAssert.assertEquals(expectedJSON, GSON.toJson(user), true);
     }
