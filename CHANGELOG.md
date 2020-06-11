@@ -2,7 +2,7 @@
 
 Switching the Okta client ID variable for secure to plain text one. The client ID is present in the authentication and refresh tokens requests to Okta. Having it encrypted resulted in bad requests which is now no longer the case.
 
-- Fix for the Okta Client ID [#6]
+- Fix for the Okta Client ID [#6](https://github.com/szamfirov/gocd-okta-oauth-authorization-plugin/pull/6)
 
 ## 1.0.0 - 2018-03-12
 
