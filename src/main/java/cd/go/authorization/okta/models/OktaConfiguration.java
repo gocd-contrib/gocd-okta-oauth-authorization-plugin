@@ -37,7 +37,7 @@ public class OktaConfiguration implements Validatable {
 
     @Expose
     @SerializedName("ClientId")
-    @ProfileField(key = "ClientId", required = true, secure = true)
+    @ProfileField(key = "ClientId", required = true, secure = false)
     private String clientId;
 
     @Expose
