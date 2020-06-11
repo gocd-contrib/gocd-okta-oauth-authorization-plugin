@@ -18,7 +18,6 @@ package cd.go.authorization.okta;
 
 import cd.go.authorization.okta.models.OktaConfiguration;
 import cd.go.authorization.okta.models.TokenInfo;
-import cd.go.authorization.okta.utils.Util;
 import okhttp3.*;
 
 import java.io.IOException;
@@ -27,6 +26,7 @@ import java.util.UUID;
 import java.util.concurrent.TimeUnit;
 
 import static cd.go.authorization.okta.OktaPlugin.LOG;
+import static cd.go.authorization.okta.utils.Util.isBlank;
 import static cd.go.authorization.okta.utils.Util.isNotBlank;
 import static java.text.MessageFormat.format;
 
@@ -72,7 +72,7 @@ public class OktaApiClient {
 
     public TokenInfo fetchAccessToken(Map<String, String> params) throws Exception {
         final String code = params.get("code");
-        if (Util.isBlank(code)) {
+        if (isBlank(code)) {
             throw new RuntimeException("[OktaApiClient] Authorization code must not be null.");
         }
 

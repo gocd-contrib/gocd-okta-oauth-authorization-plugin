@@ -55,7 +55,7 @@ public class GetAuthConfigMetadataRequestExecutorTest {
                 "    \"key\": \"ClientId\",\n" +
                 "    \"metadata\": {\n" +
                 "      \"required\": true,\n" +
-                "      \"secure\": true\n" +
+                "      \"secure\": false\n" +
                 "    }\n" +
                 "  },\n" +
                 "  {\n" +
