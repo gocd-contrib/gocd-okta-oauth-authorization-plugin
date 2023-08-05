@@ -13,3 +13,6 @@ out/
 !gradle-wrapper.jar
 
 classes/
+
+# osx junk
+.DS_Store
