@@ -1,0 +1,4 @@
+{
+  "name": "gocd-okta-oauth-authorization-plugin",
+  "image": "gradle:jdk11-jammy"
+}
