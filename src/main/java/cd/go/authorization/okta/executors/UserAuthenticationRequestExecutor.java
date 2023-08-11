@@ -1,5 +1,5 @@
 /*
- * Copyright 2017 ThoughtWorks, Inc.
+ * Copyright 2017 Svetlin Zamfirov
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -28,12 +28,8 @@ import com.google.gson.Gson;
 import com.thoughtworks.go.plugin.api.response.DefaultGoPluginApiResponse;
 import com.thoughtworks.go.plugin.api.response.GoPluginApiResponse;
 
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
-
-import static cd.go.authorization.okta.OktaPlugin.LOG;
-import static java.text.MessageFormat.format;
 
 public class UserAuthenticationRequestExecutor implements RequestExecutor {
     private static final Gson GSON = new Gson();

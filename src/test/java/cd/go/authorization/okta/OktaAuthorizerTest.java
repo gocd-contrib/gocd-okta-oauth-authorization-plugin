@@ -1,5 +1,5 @@
 /*
- * Copyright 2017 ThoughtWorks, Inc.
+ * Copyright 2017 Svetlin Zamfirov
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,8 +16,9 @@
 
 package cd.go.authorization.okta;
 
-import cd.go.authorization.okta.models.*;
-import cd.go.authorization.okta.OktaUser;
+import cd.go.authorization.okta.models.AuthConfig;
+import cd.go.authorization.okta.models.OktaRoleConfiguration;
+import cd.go.authorization.okta.models.Role;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -25,7 +26,6 @@ import java.util.Collections;
 import java.util.List;
 
 import static java.util.Collections.singletonList;
-import static java.util.Collections.singletonMap;
 import static org.hamcrest.Matchers.contains;
 import static org.hamcrest.Matchers.hasSize;
 import static org.junit.Assert.assertThat;

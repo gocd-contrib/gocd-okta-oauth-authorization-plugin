@@ -1,5 +1,5 @@
 /*
- * Copyright 2017 ThoughtWorks, Inc.
+ * Copyright 2017 Svetlin Zamfirov
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,9 +16,9 @@
 
 package cd.go.authorization.okta.executors;
 
+import cd.go.authorization.okta.OktaApiClient;
 import cd.go.authorization.okta.annotation.MetadataValidator;
 import cd.go.authorization.okta.annotation.ValidationResult;
-import cd.go.authorization.okta.OktaApiClient;
 import cd.go.authorization.okta.requests.VerifyConnectionRequest;
 import com.thoughtworks.go.plugin.api.response.DefaultGoPluginApiResponse;
 import com.thoughtworks.go.plugin.api.response.GoPluginApiResponse;

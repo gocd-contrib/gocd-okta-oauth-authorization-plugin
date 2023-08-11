@@ -1,5 +1,5 @@
 /*
- * Copyright 2017 ThoughtWorks, Inc.
+ * Copyright 2017 Svetlin Zamfirov
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,13 +16,11 @@
 
 package cd.go.authorization.okta;
 
-import cd.go.authorization.okta.utils.Util;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
 
-import static cd.go.authorization.okta.OktaPlugin.LOG;
 import static cd.go.authorization.okta.utils.Util.GSON;
 
 public class OktaUser {

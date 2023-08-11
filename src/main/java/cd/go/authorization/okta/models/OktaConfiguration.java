@@ -1,5 +1,5 @@
 /*
- * Copyright 2017 ThoughtWorks, Inc.
+ * Copyright 2017 Svetlin Zamfirov
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -19,12 +19,10 @@ package cd.go.authorization.okta.models;
 import cd.go.authorization.okta.OktaApiClient;
 import cd.go.authorization.okta.annotation.ProfileField;
 import cd.go.authorization.okta.annotation.Validatable;
-import cd.go.authorization.okta.utils.Util;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.reflect.TypeToken;
 
-import java.util.List;
 import java.util.Map;
 
 import static cd.go.authorization.okta.utils.Util.GSON;
