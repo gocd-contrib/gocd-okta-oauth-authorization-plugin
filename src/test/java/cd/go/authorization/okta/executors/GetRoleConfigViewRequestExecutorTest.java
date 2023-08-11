@@ -16,18 +16,19 @@
 
 package cd.go.authorization.okta.executors;
 
+import cd.go.authorization.okta.annotation.FieldMetadata;
 import cd.go.authorization.okta.annotation.MetadataHelper;
 import cd.go.authorization.okta.annotation.ProfileMetadata;
 import cd.go.authorization.okta.models.OktaRoleConfiguration;
 import cd.go.authorization.okta.utils.Util;
 import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 import com.thoughtworks.go.plugin.api.response.GoPluginApiResponse;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
 import org.junit.Test;
 
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -41,8 +42,8 @@ public class GetRoleConfigViewRequestExecutorTest {
         String template = Util.readResource("/role-config.template.html");
         final Document document = Jsoup.parse(template);
 
-        final List<ProfileMetadata> metadataList = MetadataHelper.getMetadata(OktaRoleConfiguration.class);
-        for (ProfileMetadata field : metadataList) {
+        final List<ProfileMetadata<FieldMetadata>> metadataList = MetadataHelper.getMetadata(OktaRoleConfiguration.class);
+        for (ProfileMetadata<FieldMetadata> field : metadataList) {
             final Elements inputFieldForKey = document.getElementsByAttributeValue("ng-model", field.getKey());
             assertThat(inputFieldForKey, hasSize(1));
 
@@ -60,7 +61,7 @@ public class GetRoleConfigViewRequestExecutorTest {
     public void shouldRenderTheTemplateInJSON() throws Exception {
         GoPluginApiResponse response = new GetRoleConfigViewRequestExecutor().execute();
         assertThat(response.responseCode(), is(200));
-        Map<String, String> hashSet = new Gson().fromJson(response.responseBody(), HashMap.class);
+        Map<String, String> hashSet = new Gson().fromJson(response.responseBody(), new TypeToken<Map<String, String>>() {}.getType());
         assertThat(hashSet, hasEntry("template", Util.readResource("/role-config.template.html")));
     }
 }

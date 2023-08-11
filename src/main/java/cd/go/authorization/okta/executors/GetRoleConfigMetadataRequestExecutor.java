@@ -16,6 +16,7 @@
 
 package cd.go.authorization.okta.executors;
 
+import cd.go.authorization.okta.annotation.FieldMetadata;
 import cd.go.authorization.okta.annotation.MetadataHelper;
 import cd.go.authorization.okta.annotation.ProfileMetadata;
 import cd.go.authorization.okta.models.OktaRoleConfiguration;
@@ -30,7 +31,7 @@ public class GetRoleConfigMetadataRequestExecutor implements RequestExecutor {
     private static final Gson GSON = new GsonBuilder().excludeFieldsWithoutExposeAnnotation().create();
 
     public GoPluginApiResponse execute() throws Exception {
-        final List<ProfileMetadata> authConfigMetadata = MetadataHelper.getMetadata(OktaRoleConfiguration.class);
+        final List<ProfileMetadata<FieldMetadata>> authConfigMetadata = MetadataHelper.getMetadata(OktaRoleConfiguration.class);
         return DefaultGoPluginApiResponse.success(GSON.toJson(authConfigMetadata));
     }
 }

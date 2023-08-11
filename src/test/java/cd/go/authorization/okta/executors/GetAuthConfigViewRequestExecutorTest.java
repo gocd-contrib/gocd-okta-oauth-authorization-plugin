@@ -16,15 +16,16 @@
 
 package cd.go.authorization.okta.executors;
 
+import cd.go.authorization.okta.annotation.FieldMetadata;
 import cd.go.authorization.okta.annotation.MetadataHelper;
 import cd.go.authorization.okta.annotation.ProfileMetadata;
 import cd.go.authorization.okta.models.OktaConfiguration;
 import cd.go.authorization.okta.utils.Util;
 import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 import com.thoughtworks.go.plugin.api.response.GoPluginApiResponse;
 import org.junit.Test;
 
-import java.util.HashMap;
 import java.util.Map;
 
 import static org.hamcrest.Matchers.*;
@@ -36,7 +37,7 @@ public class GetAuthConfigViewRequestExecutorTest {
     public void shouldRenderTheTemplateInJSON() throws Exception {
         GoPluginApiResponse response = new GetAuthConfigViewRequestExecutor().execute();
         assertThat(response.responseCode(), is(200));
-        Map<String, String> hashSet = new Gson().fromJson(response.responseBody(), HashMap.class);
+        Map<String, String> hashSet = new Gson().fromJson(response.responseBody(), new TypeToken<Map<String, String>>() {}.getType());
         assertThat(hashSet, hasEntry("template", Util.readResource("/auth-config.template.html")));
     }
 
@@ -44,7 +45,7 @@ public class GetAuthConfigViewRequestExecutorTest {
     public void allFieldsShouldBePresentInView() throws Exception {
         String template = Util.readResource("/auth-config.template.html");
 
-        for (ProfileMetadata field : MetadataHelper.getMetadata(OktaConfiguration.class)) {
+        for (ProfileMetadata<FieldMetadata> field : MetadataHelper.getMetadata(OktaConfiguration.class)) {
             assertThat(template, containsString("ng-model=\"" + field.getKey() + "\""));
             assertThat(template, containsString("<span class=\"form_error form-error\" ng-class=\"{'is-visible': GOINPUTNAME[" +
                     field.getKey() + "].$error.server}\" ng-show=\"GOINPUTNAME[" +

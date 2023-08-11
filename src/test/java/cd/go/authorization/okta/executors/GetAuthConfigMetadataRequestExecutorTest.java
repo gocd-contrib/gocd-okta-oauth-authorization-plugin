@@ -16,9 +16,12 @@
 
 package cd.go.authorization.okta.executors;
 
+import cd.go.authorization.okta.annotation.FieldMetadata;
 import cd.go.authorization.okta.annotation.MetadataHelper;
+import cd.go.authorization.okta.annotation.ProfileMetadata;
 import cd.go.authorization.okta.models.OktaConfiguration;
 import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 import com.thoughtworks.go.plugin.api.response.GoPluginApiResponse;
 import org.junit.Test;
 import org.skyscreamer.jsonassert.JSONAssert;
@@ -34,7 +37,7 @@ public class GetAuthConfigMetadataRequestExecutorTest {
     @Test
     public void shouldSerializeAllFields() throws Exception {
         GoPluginApiResponse response = new GetAuthConfigMetadataRequestExecutor().execute();
-        List list = new Gson().fromJson(response.responseBody(), List.class);
+        List<ProfileMetadata<FieldMetadata>> list = new Gson().fromJson(response.responseBody(),  new TypeToken<List<ProfileMetadata<FieldMetadata>>>() {}.getType());
         assertEquals(list.size(), MetadataHelper.getMetadata(OktaConfiguration.class).size());
     }
 

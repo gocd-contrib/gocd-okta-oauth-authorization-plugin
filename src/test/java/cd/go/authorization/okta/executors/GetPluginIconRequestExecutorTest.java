@@ -18,10 +18,11 @@ package cd.go.authorization.okta.executors;
 
 import cd.go.authorization.okta.utils.Util;
 import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 import com.thoughtworks.go.plugin.api.response.GoPluginApiResponse;
 import org.junit.Test;
 
-import java.util.HashMap;
+import java.util.Map;
 
 import static java.util.Base64.getDecoder;
 import static org.hamcrest.CoreMatchers.is;
@@ -32,7 +33,7 @@ public class GetPluginIconRequestExecutorTest {
     @Test
     public void rendersIconInBase64() throws Exception {
         GoPluginApiResponse response = new GetPluginIconRequestExecutor().execute();
-        HashMap<String, String> hashMap = new Gson().fromJson(response.responseBody(), HashMap.class);
+        Map<String, String> hashMap = new Gson().fromJson(response.responseBody(), new TypeToken<Map<String, String>>() {}.getType());
         assertThat(hashMap.size(), is(2));
         assertThat(hashMap.get("content_type"), is("image/png"));
         assertThat(Util.readResourceBytes("/okta-logo.png"), is(getDecoder().decode(hashMap.get("data"))));

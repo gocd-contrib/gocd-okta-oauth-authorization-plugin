@@ -18,13 +18,14 @@ package cd.go.authorization.okta.annotation;
 
 
 import java.lang.reflect.Field;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class MetadataHelper {
 
-    public static List<ProfileMetadata> getMetadata(Class<?> clazz) {
+    public static List<ProfileMetadata<FieldMetadata>> getMetadata(Class<?> clazz) {
         Field[] fields = clazz.getDeclaredFields();
-        List<ProfileMetadata> metadata = new ArrayList<>();
+        List<ProfileMetadata<FieldMetadata>> metadata = new ArrayList<>();
         for (Field field : fields) {
             ProfileField profileField = field.getAnnotation(ProfileField.class);
             if (profileField != null) {
