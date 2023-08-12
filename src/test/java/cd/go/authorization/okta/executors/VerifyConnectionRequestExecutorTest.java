@@ -17,15 +17,15 @@
 package cd.go.authorization.okta.executors;
 
 import cd.go.authorization.okta.requests.VerifyConnectionRequest;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import static org.mockito.Mockito.mock;
 
 public class VerifyConnectionRequestExecutorTest {
     private VerifyConnectionRequest request;
 
-    @Before
+    @BeforeEach
     public void setup() throws Exception {
         request = mock(VerifyConnectionRequest.class);
     }

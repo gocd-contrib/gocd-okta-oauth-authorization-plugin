@@ -19,16 +19,16 @@ package cd.go.authorization.okta;
 import cd.go.authorization.okta.models.AuthConfig;
 import cd.go.authorization.okta.models.OktaRoleConfiguration;
 import cd.go.authorization.okta.models.Role;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import java.util.Collections;
 import java.util.List;
 
 import static java.util.Collections.singletonList;
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.contains;
 import static org.hamcrest.Matchers.hasSize;
-import static org.junit.Assert.assertThat;
 import static org.mockito.Mockito.*;
 
 public class OktaAuthorizerTest {
@@ -38,7 +38,7 @@ public class OktaAuthorizerTest {
     private MembershipChecker membershipChecker;
     private AuthConfig authConfig;
 
-    @Before
+    @BeforeEach
     public void setUp() throws Exception {
         membershipChecker = mock(MembershipChecker.class);
         loggedInUser = mock(OktaUser.class);
@@ -52,8 +52,8 @@ public class OktaAuthorizerTest {
         final List<String> assignedRoles = authorizer.authorize(loggedInUser, authConfig, Collections.emptyList());
 
         assertThat(assignedRoles, hasSize(0));
-        verifyZeroInteractions(authConfig);
-        verifyZeroInteractions(membershipChecker);
+        verifyNoInteractions(authConfig);
+        verifyNoInteractions(membershipChecker);
     }
 
     @Test

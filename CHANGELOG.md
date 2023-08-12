@@ -1,3 +1,5 @@
+See the [GitHub releases page](https://github.com/gocd-contrib/gocd-okta-oauth-authorization-plugin/releases) for changes after version 2.0.0.
+
 ## 2.0.0 - 2023-08-09
 
 *   Switch to the Authorization extension API version 2.0

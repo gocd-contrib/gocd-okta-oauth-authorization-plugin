@@ -111,7 +111,7 @@ public class OktaApiClient {
                 .addPathSegments("userinfo")
                 .toString();
 
-        final RequestBody formBody = RequestBody.create(null, "");
+        final RequestBody formBody = RequestBody.create("", null);
 
         final Request request = new Request.Builder()
                 .url(userProfileUrl)
