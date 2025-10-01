@@ -52,8 +52,13 @@ project.ext.symbols = [
         X_MARK      : "\u2718"
 ]
 
+java {
+    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17
+}
+
 tasks.withType(JavaCompile) {
-    options.release = 11
+    options.release = 17
     options.deprecation = true
     options.encoding = 'utf-8'
     options.warnings = true
